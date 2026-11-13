@@ -3,7 +3,6 @@ from tkinter import ttk, messagebox
 
 
 class Vendedor:
-    """Modela un vendedor que tiene como atributos un nombre, apellidos y una edad."""
 
     def __init__(self, nombre: str, apellidos: str):
         self.nombre = nombre
@@ -11,10 +10,7 @@ class Vendedor:
         self.edad = None
 
     def verificar_edad(self, edad: int) -> None:
-        """Verifica que la edad sea apropiada; si no lo es, lanza ValueError.
-
-        ValueError cumple el papel de IllegalArgumentException en Java.
-        """
+        
         if edad < 0 or edad > 120:
             raise ValueError("La edad no puede ser negativa ni mayor a 120.")
         if edad < 18:
