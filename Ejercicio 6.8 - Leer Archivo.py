@@ -4,15 +4,12 @@ from tkinter import ttk, filedialog, messagebox
 
 
 class LeerArchivo:
-    """Lee un archivo de texto línea a línea usando una cadena de flujos."""
 
     @staticmethod
     def leer(nombre_archivo: str) -> list:
-        """Retorna las líneas del archivo. Lanza OSError (IOException) si no se puede leer."""
         lineas = []
         archivo = open(nombre_archivo, "rb")  # FileInputStream: flujo de bytes
         try:
-            # InputStreamReader: convierte los bytes en caracteres
             conversor = io.TextIOWrapper(archivo, encoding="utf-8-sig")
             linea = conversor.readline()  # Lectura línea a línea (como readLine de Java)
             while linea != "":  # Al llegar al final del archivo, readline() retorna ""
