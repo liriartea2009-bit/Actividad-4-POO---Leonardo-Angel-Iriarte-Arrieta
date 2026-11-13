@@ -4,14 +4,12 @@ from tkinter import ttk
 
 
 class CalculosNumericos:
-    """Permite calcular el logaritmo neperiano y la raíz cuadrada de un valor."""
 
     @staticmethod
     def calcular_logaritmo_neperiano(valor: str) -> str:
         try:
             numero = float(str(valor).strip().replace(",", "."))  # ValueError si no es numérico
             if numero <= 0:
-                # Si el valor no es positivo, se genera una excepción aritmética
                 raise ArithmeticError("El valor debe ser un número positivo")
             return f"Resultado = {math.log(numero)}"
         except ArithmeticError:
