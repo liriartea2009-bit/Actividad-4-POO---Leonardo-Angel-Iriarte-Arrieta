@@ -3,15 +3,12 @@ from tkinter import ttk, messagebox
 
 
 class CampoInvalidoError(Exception):
-    """Se lanza cuando un campo de texto no cumple las condiciones de validación."""
 
 
 class EquipoCompletoError(Exception):
-    """Se lanza al añadir un programador a un equipo que ya está completo."""
 
 
 class Programador:
-    """Modela un integrante del equipo: tiene un nombre y apellidos."""
 
     def __init__(self, nombre: str, apellidos: str):
         self.nombre = nombre
@@ -19,7 +16,6 @@ class Programador:
 
 
 class EquipoMaratonProgramacion:
-    """Modela un equipo de programadores (máximo tres) que participa en una maratón."""
 
     CAPACIDAD = 3
 
@@ -41,11 +37,10 @@ class EquipoMaratonProgramacion:
 
     @staticmethod
     def validar_campo(campo: str) -> None:
-        """Valida que el campo no esté vacío, no tenga dígitos y no supere 20 caracteres."""
         if not campo:
             raise CampoInvalidoError("El campo no puede estar vacío.")
         for caracter in campo:
-            if caracter.isdigit():  # Si el caracter es un dígito se genera la excepción
+            if caracter.isdigit():  
                 raise CampoInvalidoError("El nombre no puede tener dígitos.")
         if len(campo) > 20:  # Si la longitud supera los 20 caracteres, se genera la excepción
             raise CampoInvalidoError("La longitud no debe ser superior a 20 caracteres.")
