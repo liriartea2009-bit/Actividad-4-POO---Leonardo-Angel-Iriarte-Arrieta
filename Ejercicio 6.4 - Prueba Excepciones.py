@@ -3,7 +3,6 @@ from tkinter import ttk
 
 
 class PruebaExcepciones:
-    """Ejecuta dos bloques try/except/finally y registra los mensajes que se mostrarían."""
 
     def ejecutar(self) -> list:
         salida = []
@@ -11,27 +10,26 @@ class PruebaExcepciones:
         # Primer bloque try
         try:
             salida.append("Ingresando al primer try")
-            cociente = 10000 / 0  # Se lanza una excepción (ZeroDivisionError)
-            salida.append("Después de la división")  # Esta instrucción nunca será ejecutada
-        except ZeroDivisionError:  # Se captura la excepción aritmética
+            cociente = 10000 / 0 
+            salida.append("Después de la división") 
+        except ZeroDivisionError:  
             salida.append("División por cero")
         finally:
-            # La sentencia finally siempre se ejecuta, ocurra o no una excepción
+          
             salida.append("Ingresando al primer finally")
 
-        # Segundo bloque try
+ 
         try:
             salida.append("Ingresando al segundo try")
             objeto = None
-            # En Java sería un NullPointerException; en Python es un AttributeError
+        
             objeto.upper()  # Se lanza una excepción
-            salida.append("Imprimiendo objeto")  # Esta instrucción nunca será ejecutada
-        except ZeroDivisionError:  # La excepción lanzada no es de este tipo
+            salida.append("Imprimiendo objeto")  
+        except ZeroDivisionError:  
             salida.append("División por cero")
-        except Exception:  # Se captura la excepción general
+        except Exception: 
             salida.append("Ocurrió una excepción")
         finally:
-            # La sentencia finally siempre se ejecuta, ocurra o no una excepción
             salida.append("Ingresando al segundo finally")
 
         return salida
